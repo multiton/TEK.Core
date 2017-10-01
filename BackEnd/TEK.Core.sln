@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceCode", "SourceCode", "{2904642A-5AE4-44AF-BA70-27EB34C52018}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A446CB24-11F3-4A68-B58A-9B526F53251C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.Entity", "SourceCode\TEK.Core.Entity\TEK.Core.Entity.csproj", "{DF788414-9A94-46E1-85DF-D323D9F9DDFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.ResourceAccess.EF", "SourceCode\TEK.Core.ResourceAccess.EF\TEK.Core.ResourceAccess.EF.csproj", "{A20E2439-29D2-4FA7-AEB6-A0E00E19D2A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.ResourceAccess.Contract", "SourceCode\TEK.Core.ResourceAccess.Contract\TEK.Core.ResourceAccess.Contract.csproj", "{9259C61F-2028-45FF-B0C0-6FD349DA6EA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.WebApi", "SourceCode\TEK.Core.WebApi\TEK.Core.WebApi.csproj", "{48993E72-A848-465C-BB42-8DF303999620}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF788414-9A94-46E1-85DF-D323D9F9DDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF788414-9A94-46E1-85DF-D323D9F9DDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF788414-9A94-46E1-85DF-D323D9F9DDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF788414-9A94-46E1-85DF-D323D9F9DDFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A20E2439-29D2-4FA7-AEB6-A0E00E19D2A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20E2439-29D2-4FA7-AEB6-A0E00E19D2A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20E2439-29D2-4FA7-AEB6-A0E00E19D2A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20E2439-29D2-4FA7-AEB6-A0E00E19D2A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9259C61F-2028-45FF-B0C0-6FD349DA6EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9259C61F-2028-45FF-B0C0-6FD349DA6EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9259C61F-2028-45FF-B0C0-6FD349DA6EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9259C61F-2028-45FF-B0C0-6FD349DA6EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48993E72-A848-465C-BB42-8DF303999620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48993E72-A848-465C-BB42-8DF303999620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48993E72-A848-465C-BB42-8DF303999620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48993E72-A848-465C-BB42-8DF303999620}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF788414-9A94-46E1-85DF-D323D9F9DDFF} = {2904642A-5AE4-44AF-BA70-27EB34C52018}
+		{A20E2439-29D2-4FA7-AEB6-A0E00E19D2A5} = {2904642A-5AE4-44AF-BA70-27EB34C52018}
+		{9259C61F-2028-45FF-B0C0-6FD349DA6EA7} = {2904642A-5AE4-44AF-BA70-27EB34C52018}
+		{48993E72-A848-465C-BB42-8DF303999620} = {2904642A-5AE4-44AF-BA70-27EB34C52018}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24FE83F0-A462-4A28-9FF1-B91A0ABE1420}
+	EndGlobalSection
+EndGlobal
