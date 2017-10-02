@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,8 +10,9 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    public class CompanyController : Controller
+	[Route("api/[controller]")]
+	[EnableCors("AllowSpecificOrigin")]
+	public class CompanyController : Controller
     {
         private readonly DataContext dataContext;
 
@@ -22,6 +25,8 @@ namespace TEK.Core.WebApi.Controllers
         public async Task<IActionResult> Get()
         {
             var result = await this.dataContext.Set<Company>().Take(1000).ToListAsync();
+
+			System.Console.WriteLine("\nLoad from database...");
 
             return Ok(result);
         }

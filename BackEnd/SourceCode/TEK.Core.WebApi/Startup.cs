@@ -13,7 +13,7 @@ namespace TEK.Core.WebApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-        }
+		}
 
         public IConfiguration Configuration { get; }
 
@@ -22,6 +22,11 @@ namespace TEK.Core.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+			services.AddCors(o => o.AddPolicy("AllowSpecificOrigin", builder =>
+			{
+				builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+			}));
 
 			services.AddDbContext<DataContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("TEK.Core")));
@@ -37,6 +42,10 @@ namespace TEK.Core.WebApi
             }
 
             app.UseMvc();
-        }
-    }
+			app.UseCors("AllowSpecificOrigin");
+
+			// Also, see the next thread:
+			// https://stackoverflow.com/questions/31942037/how-to-enable-cors-in-asp-net-core
+		}
+	}
 }
