@@ -1,19 +1,19 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 using TEK.Core.Entity;
 using TEK.Core.ResourceAccess.EF;
-using System.Threading.Tasks;
 
 namespace TEK.Core.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class CompanyController : Controller
     {
         private readonly DataContext dataContext;
 
-        public ValuesController(DataContext dataContext)
+        public CompanyController(DataContext dataContext)
         {
             this.dataContext = dataContext;
         }
@@ -30,7 +30,8 @@ namespace TEK.Core.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var result = await this.dataContext.Set<Company>().SingleOrDefaultAsync(x => x.Id == id);
+            var result = await this.dataContext.Set<Company>()
+                .SingleOrDefaultAsync(x => x.Id == id);
 
             if (result == null) return NotFound($"Id {id} not found");
 

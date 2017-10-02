@@ -8,6 +8,6 @@ export class CompaniesService
   
   getAll()
   {
-    return this.http.get('api/');
+    return this.http.get('http://localhost:51404/api/company');
   }
 }
