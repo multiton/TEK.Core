@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyService } from './core/services/company.service';
+import { Company } from './core/models/company';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +9,10 @@ import { CompanyService } from './core/services/company.service';
 })
 export class AppComponent
 {
-  title = 'Hello world !!!';
+  private companies : Array<Company> = [];
 
-  companies;
-
-  constructor(private companyService : CompanyService)   
+  constructor(private companyService : CompanyService)
   {
-    let cmp = companyService.getAll();
-    let c = cmp.subscribe(data => this.companies);
-    let p = this.companies;
+    companyService.getAll().subscribe(data => this.companies = data);
   }
 }

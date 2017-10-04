@@ -1,4 +1,7 @@
-<div style="text-align:center">
-  <h1>Welcome to {{title}}!</h1>
-  <app-company></app-company>
+<div>
+  <ul id="company-list">
+    <li *ngFor="let company of companies">
+      <p>{{company.id}} {{company.name}}</p>
+    </li>
+  </ul>
 </div>

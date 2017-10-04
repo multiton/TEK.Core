@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Cors;
@@ -24,9 +25,12 @@ namespace TEK.Core.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await this.dataContext.Set<Company>().Take(1000).ToListAsync();
+            var result = await this.dataContext.Set<Company>()
+                .OrderBy(x => x.Name.TrimStart())
+                .Take(20000)                
+                .ToListAsync();
 
-			System.Console.WriteLine("\nLoad from database...");
+			Console.WriteLine("\nLoad from database...");
 
             return Ok(result);
         }

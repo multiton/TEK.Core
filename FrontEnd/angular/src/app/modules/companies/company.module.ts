@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { CompanyComponent } from './company.component';
 
 @NgModule(
