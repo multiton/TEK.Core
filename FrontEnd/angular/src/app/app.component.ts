@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CompanyService } from './core/services/company.service';
 import { Company } from './core/models/company';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,17 @@ import { Company } from './core/models/company';
 })
 export class AppComponent
 {
-  private companies : Array<Company> = [];
+  private companies; //: Observable<Array<Company>>; //: Array<Company> = []; // Observable?
 
-  constructor(private companyService : CompanyService)
+  constructor(private companyService : CompanyService) { }
+
+  LoadAllCompanies() : void
   {
-    companyService.getAll().subscribe(data => this.companies = data);
+    this.companyService.getAll().subscribe(data => this.companies = data);
+  }
+
+  ClearCompanies() : void
+  {
+    this.companies = [];
   }
 }

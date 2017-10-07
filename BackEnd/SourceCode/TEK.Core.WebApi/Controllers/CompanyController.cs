@@ -25,12 +25,14 @@ namespace TEK.Core.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await this.dataContext.Set<Company>()
-                .OrderBy(x => x.Name.TrimStart())
-                .Take(20000)                
-                .ToListAsync();
+			Console.Write("\nGot request...");
 
-			Console.WriteLine("\nLoad from database...");
+			var result = await this.dataContext.Set<Company>()
+                .OrderBy(x => x.Name).
+				Take(80000).
+				ToListAsync();
+
+			Console.WriteLine("Load from database...");
 
             return Ok(result);
         }

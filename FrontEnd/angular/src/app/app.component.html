@@ -1,7 +1,10 @@
 <div>
+  <button id="btnLoadCompanies" (click)="LoadAllCompanies()">Load</button>
+  <button id="btnClearCompanies" (click)="ClearCompanies()">Clear</button>
+  <input type="Text" />
   <ul id="company-list">
-    <li *ngFor="let company of companies">
-      <p>{{company.id}} {{company.name}}</p>
-    </li>
+      <li *ngFor="let company of companies">
+        <p>{{company.id}} {{company.name}}</p>
+      </li>
   </ul>
 </div>

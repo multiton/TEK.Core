@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceCode", "SourceCode", "{2904642A-5AE4-44AF-BA70-27EB34C52018}"
 EndProject
@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.ResourceAccess.EF"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.ResourceAccess.Contract", "SourceCode\TEK.Core.ResourceAccess.Contract\TEK.Core.ResourceAccess.Contract.csproj", "{9259C61F-2028-45FF-B0C0-6FD349DA6EA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.WebApi", "SourceCode\TEK.Core.WebApi\TEK.Core.WebApi.csproj", "{48993E72-A848-465C-BB42-8DF303999620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.WebApi", "SourceCode\TEK.Core.WebApi\TEK.Core.WebApi.csproj", "{48993E72-A848-465C-BB42-8DF303999620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
