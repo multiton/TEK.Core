@@ -1,0 +1,64 @@
+<html lang="en-US">
+
+    <head><meta charset="utf-8"/></head>
+
+    <body>
+        <div>
+            <button id="BtnCallApi" onclick="LoadCompanies()">Load List</button>
+            <button id="BtnClear" onclick="ClearList()">Clear List</button>
+            <input type="text" id="EditBoxStatus" />
+            <input type="text" id="EditBoxTest" />
+            <button id="BtnClearConsole" onclick="ClearConsole()">Clear Console</button>
+        </div>
+        <ul id="CompaniesList"></ul>
+    </body>
+
+    <script>
+        const apiUrl = "http://localhost:51404/";
+
+        function LoadCompanies()
+        {
+            var button = document.getElementById("BtnCallApi");
+            var list = document.getElementById("CompaniesList");
+            var editBoxStatus = document.getElementById("EditBoxStatus");
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", apiUrl + "api/company", true);
+            //xhr.responseType = 'json';
+            
+
+            xhr.onload = function()
+            {
+                //if (xhr.readyState != 4) return;
+
+                editBoxStatus.value = 'Done';
+
+                var result = JSON.parse(xhr.responseText);
+
+                for(i = 0; i < result.length; i++)
+                {
+                    var li = document.createElement("li");
+                    li.appendChild(document.createTextNode(result[i].name));
+                    list.appendChild(li);
+                }
+            }            
+
+            editBoxStatus.value = "Loading...";
+            xhr.send();
+        }
+
+        function ClearList()
+        {
+            document.getElementById("CompaniesList").innerHTML = "";
+            document.getElementById("EditBoxStatus").value = "Cleared";
+        }
+
+        function ClearConsole()
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", apiUrl + "api/test", true);
+            xhr.send();
+        }
+    </script>
+
+</html>

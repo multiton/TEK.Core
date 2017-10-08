@@ -1,29 +1,29 @@
 {
-  "iisSettings": {
+  "iisSettings":
+  {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
-    "iisExpress": {
+    "iisExpress": 
+    {
       "applicationUrl": "http://localhost:51403/index.html",
       "sslPort": 0
     }
   },
-  "profiles": {
+  "profiles": 
+   {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/company",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "use64Bit": true
+      "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" },
+      "use64Bit": true,
+      "launchUrl": "api/company"
     },
-    "TEK.Core.WebApi": {
+    "TEK.Core.WebApi":
+    {
       "commandName": "Project",
-      "launchBrowser": true,
+      "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" },
+      "launchBrowser": false,
       "launchUrl": "api/company",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
       "applicationUrl": "http://localhost:51404/"
     }
   }
