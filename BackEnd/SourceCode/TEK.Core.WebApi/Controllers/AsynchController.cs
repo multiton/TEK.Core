@@ -21,6 +21,7 @@ namespace TEK.Core.WebApi.Controllers
         public AsynchController(DataContext dataContext)
         {
             this.dataContext = dataContext;
+            Console.Write("\n--- ASynch-Controller constructed ---");
         }
 
         [Route("api/[controller]/{count:int}")]
@@ -36,9 +37,17 @@ namespace TEK.Core.WebApi.Controllers
 				.ToListAsync();
 
             watch.Stop();
-			Console.WriteLine($"---> [{threadId}] Load aSynch...({watch.ElapsedMilliseconds} miliSec)");
+			Console.Write($"---> [{threadId}] Load aSynch...({watch.ElapsedMilliseconds} miliSec)");
+
+            Program.TotalTime += watch.ElapsedMilliseconds;
 
             return Ok(result);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            Console.WriteLine($"--- Controller disposed.");
+            base.Dispose(disposing);
         }
     }
 }

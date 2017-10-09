@@ -19,6 +19,7 @@ namespace TEK.Core.WebApi.Controllers
         public SynchController(DataContext dataContext)
         {
             this.dataContext = dataContext;
+            Console.Write($"\n--- Synch-Controller constructed ---");
         }
 
         [Route("api/[controller]/{count:int}")]
@@ -34,9 +35,17 @@ namespace TEK.Core.WebApi.Controllers
                 .ToList();
 
             watch.Stop();
-            Console.WriteLine($"---> [{threadId}] Load synch...({watch.ElapsedMilliseconds} miliSec)");
+            Console.Write($"---> [{threadId}] Load synch...({watch.ElapsedMilliseconds} miliSec)");
+
+            Program.TotalTime += watch.ElapsedMilliseconds;
 
             return Ok(result);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            Console.WriteLine($"--- Controller disposed.");
+            base.Dispose(disposing);
         }
     }
 }

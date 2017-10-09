@@ -28,6 +28,8 @@
             xhr.open("GET", apiUrl, true);
             //xhr.responseType = 'json';
 
+            xhr.onprogress = function () { editBoxStatus.value = "Loading..."; }
+
             xhr.onload = function()
             {
                 //if (xhr.readyState != 4) return;
@@ -47,7 +49,7 @@
                 editBoxStatus.value = 'Done (' + result.length + " records). Time: " + (endTime - startTime);
             }            
 
-            editBoxStatus.value = "Loading...";
+            editBoxStatus.value = "Request sent";
             startTime = new Date().getTime();
             xhr.send();
         }

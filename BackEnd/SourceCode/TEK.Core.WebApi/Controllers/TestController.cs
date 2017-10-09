@@ -9,10 +9,9 @@ namespace TEK.Core.WebApi.Controllers
     public class TestController : Controller
     {
         [HttpGet]
-        public string Get()
+        public void Get()
         {
             Console.Clear();
-            return string.Empty;
         }
     }
 }
