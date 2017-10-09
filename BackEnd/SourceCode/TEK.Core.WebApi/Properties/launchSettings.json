@@ -3,9 +3,8 @@
   {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
-    "iisExpress": 
-    {
-      "applicationUrl": "http://localhost:51403/index.html",
+    "iisExpress": {
+      "applicationUrl": "http://192.168.1.254:51403/index.html",
       "sslPort": 0
     }
   },
@@ -16,15 +15,14 @@
       "launchBrowser": true,
       "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" },
       "use64Bit": true,
-      "launchUrl": "api/company"
+      "launchUrl": "api/asynch/1000"
     },
-    "TEK.Core.WebApi":
-    {
+    "TEK.Core.WebApi": {
       "commandName": "Project",
       "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" },
       "launchBrowser": false,
-      "launchUrl": "api/company",
-      "applicationUrl": "http://localhost:51404/"
+      "launchUrl": "api/asynch/1000",
+      "applicationUrl": "http://192.168.1.254:51404/"
     }
   }
 }

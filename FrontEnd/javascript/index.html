@@ -6,32 +6,33 @@
         <div>
             <button id="BtnCallApi" onclick="LoadCompanies()">Load List</button>
             <button id="BtnClear" onclick="ClearList()">Clear List</button>
-            <input type="text" id="EditBoxStatus" />
-            <input type="text" id="EditBoxTest" />
+            <input type="text" id="EditBoxStatus" disabled style="width:240px" />
+            <input type="text" id="EditBoxUrl" value="http://192.168.1.254:51404/api/asynch/10000" style="width:300px" />
             <button id="BtnClearConsole" onclick="ClearConsole()">Clear Console</button>
         </div>
-        <ul id="CompaniesList"></ul>
+        <div style="margin-top: 5px; width: 800px; height: 600px; border: 0.5px solid lightgray">
+            <ul id="CompaniesList" style="height: 560px; overflow: hidden; overflow-y:scroll" ></ul>
+        </div>        
     </body>
 
     <script>
-        const apiUrl = "http://localhost:51404/";
-
         function LoadCompanies()
         {
-            var button = document.getElementById("BtnCallApi");
+            var startTime;
+            var apiUrl = document.getElementById("EditBoxUrl").value;
+
             var list = document.getElementById("CompaniesList");
             var editBoxStatus = document.getElementById("EditBoxStatus");
             
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", apiUrl + "api/company", true);
+            xhr.open("GET", apiUrl, true);
             //xhr.responseType = 'json';
-            
 
             xhr.onload = function()
             {
                 //if (xhr.readyState != 4) return;
 
-                editBoxStatus.value = 'Done';
+                editBoxStatus.value = 'Rendering...';
 
                 var result = JSON.parse(xhr.responseText);
 
@@ -41,23 +42,28 @@
                     li.appendChild(document.createTextNode(result[i].name));
                     list.appendChild(li);
                 }
+
+                var endTime = new Date().getTime();
+                editBoxStatus.value = 'Done (' + result.length + " records). Time: " + (endTime - startTime);
             }            
 
             editBoxStatus.value = "Loading...";
+            startTime = new Date().getTime();
             xhr.send();
         }
 
         function ClearList()
         {
             document.getElementById("CompaniesList").innerHTML = "";
-            document.getElementById("EditBoxStatus").value = "Cleared";
+            document.getElementById("EditBoxStatus").value = "List Cleared";
         }
 
         function ClearConsole()
         {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", apiUrl + "api/test", true);
+            xhr.open("GET", "http://192.168.1.254:51404/api/test", true);
             xhr.send();
+            document.getElementById("EditBoxStatus").value = "Console Cleared";
         }
     </script>
 
