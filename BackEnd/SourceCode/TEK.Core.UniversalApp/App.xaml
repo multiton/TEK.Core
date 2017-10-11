@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="TEK.Core.UniversalApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TEK.Core.UniversalApp"
+    RequestedTheme="Light">
+
+</Application>

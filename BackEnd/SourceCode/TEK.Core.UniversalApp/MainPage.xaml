@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="TEK.Core.UniversalApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TEK.Core.UniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Name="BtnLoad" Content="Load" Click="BtnLoadClick" />
+            <TextBox Grid.Column="1" Name="TbSatatus" Margin="5,0,0,0" IsEnabled="False" />
+            <TextBox Grid.Column="2" Margin="5,0,0,0" Text="Empty-345" />
+        </Grid>
+                
+        <ListView Name="ListCompanies" Margin="5" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Company">
+                    <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </Grid>
+</Page>

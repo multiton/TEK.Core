@@ -23,8 +23,11 @@ namespace TEK.Core.WebApi
         {
             services.AddMvc();
 
-			services.AddCors(o => o.AddPolicy("AllowSpecificOrigin", builder =>	{
-				builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();	}));
+			services.AddCors(o => o.AddPolicy("AllowSpecificOrigin", builder =>	{ builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
 
 			services.AddDbContext<DataContext>(options =>
 				options.UseSqlServer(Configuration.GetConnectionString("TEK.Core")));

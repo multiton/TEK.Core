@@ -12,7 +12,7 @@ namespace TEK.Core.ResourceAccess.EF
 
 		public DataContext(DbContextOptions options) : base(options) { }
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Company>().HasIndex(x => x.Name).IsUnique();
 			modelBuilder.Entity<OrderHeader>().HasIndex(x => x.Number).IsUnique();
