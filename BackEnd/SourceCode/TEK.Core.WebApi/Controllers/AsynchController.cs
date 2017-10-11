@@ -33,11 +33,11 @@ namespace TEK.Core.WebApi.Controllers
 
             var result = await this.dataContext.Companies
                 .OrderBy(x => x.Name)
-				.Take(count)
-				.ToListAsync();
+                .Take(count)
+                .ToListAsync();
 
             watch.Stop();
-			Console.Write($"---> [{threadId}] Load aSynch...({watch.ElapsedMilliseconds} miliSec)");
+            Console.Write($"---> [{threadId}] Load aSynch...({watch.ElapsedMilliseconds} miliSec)");
 
             Program.TotalTime += watch.ElapsedMilliseconds;
 

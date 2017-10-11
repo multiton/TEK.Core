@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.WebApi", "SourceCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.UniversalApp", "SourceCode\TEK.Core.UniversalApp\TEK.Core.UniversalApp.csproj", "{26D4081A-F232-4E89-9C81-4355FB773065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.ConsoleApp", "TEK.Core.ConsoleApp\TEK.Core.ConsoleApp.csproj", "{BCB366DF-EF44-43A9-8DF6-F7A23C54C53D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.ConsoleApp", "SourceCode\TEK.Core.ConsoleApp\TEK.Core.ConsoleApp.csproj", "{BCB366DF-EF44-43A9-8DF6-F7A23C54C53D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
