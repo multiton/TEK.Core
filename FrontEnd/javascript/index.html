@@ -7,7 +7,7 @@
             <button id="BtnCallApi" onclick="LoadCompanies()">Load List</button>
             <button id="BtnClear" onclick="ClearList()">Clear List</button>
             <input type="text" id="EditBoxStatus" disabled style="width:240px" />
-            <input type="text" id="EditBoxUrl" value="http://192.168.1.254:51404/api/asynch/10000" style="width:300px" />
+            <input type="text" id="EditBoxUrl" style="width:300px" />
             <button id="BtnClearConsole" onclick="ClearConsole()">Clear Console</button>
         </div>
         <div style="margin-top: 5px; width: 800px; height: 600px; border: 0.5px solid lightgray">
@@ -16,6 +16,14 @@
     </body>
 
     <script>
+        var GlobalHostAndPort = "localhost:51404";
+
+        document.body.onload = function()
+        {
+            document.getElementById("EditBoxUrl").value = 
+                "http://" + GlobalHostAndPort + "/api/asynch/10000";
+        }
+        
         function LoadCompanies()
         {
             var startTime;
@@ -63,7 +71,7 @@
         function ClearConsole()
         {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "http://192.168.1.254:51404/api/test", true);
+            xhr.open("GET", "http://" + GlobalHostAndPort + "/api/test", true);
             xhr.send();
             document.getElementById("EditBoxStatus").value = "Console Cleared";
         }

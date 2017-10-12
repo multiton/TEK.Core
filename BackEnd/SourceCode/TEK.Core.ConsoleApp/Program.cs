@@ -25,14 +25,14 @@ namespace TEK.Core.ConsoleApp
                 using (var httpClient = new HttpClient())
                 {
                     var task = await httpClient.GetAsync(
-                        "http://localhost:51404/api/asynch/1000000",
+                        "http://localhost:51404/api/asynch/10000",
                         HttpCompletionOption.ResponseHeadersRead);
 
-                    using (var consoleOut = Console.OpenStandardOutput())
+					using (var consoleOut = Console.OpenStandardOutput())
                     {
                         using (var result = await task.Content.ReadAsStreamAsync())
                         {
-                            await result.CopyToAsync(consoleOut);
+							await result.CopyToAsync(consoleOut);
                         }
                     }
                 }

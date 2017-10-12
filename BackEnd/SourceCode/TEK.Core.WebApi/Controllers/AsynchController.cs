@@ -27,7 +27,7 @@ namespace TEK.Core.WebApi.Controllers
         [Route("api/[controller]/{count:int}")]
         public async Task<IActionResult> Get(int count)
         {
-            var threadId = Thread.CurrentThread.ManagedThreadId;
+			var threadId = Thread.CurrentThread.ManagedThreadId;
             Console.Write($"\n---> Got request. Count: ({count}) Thread: [{threadId}]...");
             var watch = Stopwatch.StartNew();
 
@@ -36,7 +36,7 @@ namespace TEK.Core.WebApi.Controllers
                 .Take(count)
                 .ToListAsync();
 
-            watch.Stop();
+			watch.Stop();
             Console.Write($"---> [{threadId}] Load aSynch...({watch.ElapsedMilliseconds} miliSec)");
 
             Program.TotalTime += watch.ElapsedMilliseconds;
