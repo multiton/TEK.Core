@@ -21,14 +21,14 @@ namespace TEK.Core.WebApi.Controllers
         public AsynchController(DataContext dataContext)
         {
             this.dataContext = dataContext;
-            Console.Write("\n--- ASynch-Controller constructed ---");
+            Console.Write("\n== Controller constructed ==");
         }
 
         [Route("api/[controller]/{count:int}")]
         public async Task<IActionResult> Get(int count)
         {
 			var threadId = Thread.CurrentThread.ManagedThreadId;
-            Console.Write($"\n---> Got request. Count: ({count}) Thread: [{threadId}]...");
+            Console.Write($"--> Loading ({count} records). Thread: [{threadId}]--..");
             var watch = Stopwatch.StartNew();
 
             var result = await this.dataContext.Companies
@@ -37,17 +37,11 @@ namespace TEK.Core.WebApi.Controllers
                 .ToListAsync();
 
 			watch.Stop();
-            Console.Write($"---> [{threadId}] Load aSynch...({watch.ElapsedMilliseconds} miliSec)");
+            Console.Write($"..--> [{threadId}] Loaded aSynch ({watch.ElapsedMilliseconds} miliSec).");
 
             Program.TotalTime += watch.ElapsedMilliseconds;
 
             return Ok(result);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            Console.WriteLine($"--- Controller disposed.");
-            base.Dispose(disposing);
         }
     }
 }

@@ -19,14 +19,14 @@ namespace TEK.Core.WebApi.Controllers
         public SynchController(DataContext dataContext)
         {
             this.dataContext = dataContext;
-            Console.Write($"\n--- Synch-Controller constructed ---");
+            Console.Write("\n== Controller constructed ==");
         }
 
         [Route("api/[controller]/{count:int}")]
         public IActionResult Get(int count)
         {
             var threadId = Thread.CurrentThread.ManagedThreadId;
-            Console.Write($"\n---> Got request. Count: ({count}) Thread: [{threadId}]...");
+            Console.Write($"--> Loading ({count} records). Thread: [{threadId}]--..");
             var watch = Stopwatch.StartNew();
 
             var result = this.dataContext.Companies
@@ -35,17 +35,11 @@ namespace TEK.Core.WebApi.Controllers
                 .ToList();
 
             watch.Stop();
-            Console.Write($"---> [{threadId}] Load synch...({watch.ElapsedMilliseconds} miliSec)");
+            Console.Write($"..--> [{threadId}] Loaded Synch ({watch.ElapsedMilliseconds} miliSec).");
 
             Program.TotalTime += watch.ElapsedMilliseconds;
 
             return Ok(result);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            Console.WriteLine($"--- Controller disposed.");
-            base.Dispose(disposing);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SourceCode", "SourceCode", "{2904642A-5AE4-44AF-BA70-27EB34C52018}"
 EndProject
@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.WebApi", "SourceCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.UniversalApp", "SourceCode\TEK.Core.UniversalApp\TEK.Core.UniversalApp.csproj", "{26D4081A-F232-4E89-9C81-4355FB773065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEK.Core.ConsoleApp", "SourceCode\TEK.Core.ConsoleApp\TEK.Core.ConsoleApp.csproj", "{BCB366DF-EF44-43A9-8DF6-F7A23C54C53D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TEK.Core.ConsoleApp", "SourceCode\TEK.Core.ConsoleApp\TEK.Core.ConsoleApp.csproj", "{BCB366DF-EF44-43A9-8DF6-F7A23C54C53D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

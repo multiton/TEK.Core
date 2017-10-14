@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -8,15 +10,8 @@ using Windows.UI.Xaml.Controls;
 
 namespace TEK.Core.UniversalApp
 {
-    public class Company
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-    }
-
     public sealed partial class MainPage : Page
-    {       
+    {
         public MainPage()
         {
             this.InitializeComponent();
@@ -24,19 +19,36 @@ namespace TEK.Core.UniversalApp
 
         private async void BtnLoadClick(object sender, RoutedEventArgs e)
         {
-            var uri = new Uri("http://192.168.1.254:51404/api/asynch/1000000");
+            this.TbSatatus.Text = string.Empty;
+            this.ListCompanies.ItemsSource = null;
+
+            var stopWatch = Stopwatch.StartNew();
 
             try
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var task = await httpClient.GetAsync(uri);
-                    task.EnsureSuccessStatusCode();
+                    this.TbSatatus.Text += "Request...";
 
-                    var result = await task.Content.ReadAsStringAsync();
-                    this.ListCompanies.ItemsSource = JsonConvert.DeserializeObject<List<Company>>(result);
+                    var response = await httpClient.GetAsync(
+                        new Uri(this.TbUri.Text),
+                        HttpCompletionOption.ResponseHeadersRead);
 
-                    this.TbSatatus.Text = "Done";
+                    response.EnsureSuccessStatusCode();
+
+                    using (var content = response.Content)
+                    {
+                        this.TbSatatus.Text += "Response...";
+                        var result = await content.ReadAsStringAsync();
+
+                        this.TbSatatus.Text += $"({stopWatch.ElapsedMilliseconds} miliSec). Rendering...";
+
+                        this.ListCompanies.ItemsSource =
+                            await Task.Run(() => JsonConvert.DeserializeObject<List<Company>>(result));
+                        
+                        stopWatch.Stop();
+                        this.TbSatatus.Text += $"Done. Total time: ({stopWatch.ElapsedMilliseconds/1000} seconds)";
+                    }
                 }
             }
             catch (Exception ex)

@@ -9,7 +9,8 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" Margin="5">
@@ -20,16 +21,18 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Name="BtnLoad" Content="Load" Click="BtnLoadClick" />
             <TextBox Grid.Column="1" Name="TbSatatus" Margin="5,0,0,0" IsEnabled="False" />
-            <TextBox Grid.Column="2" Margin="5,0,0,0" Text="Empty-345" />
+            <TextBox Grid.Column="2" Name="TbUri" Margin="5,0,0,0" Text="http://localhost:51404/api/asynch/1000000" />
         </Grid>
-                
-        <ListView Name="ListCompanies" Margin="5" Grid.Row="1">
+
+        <ListView Name="ListCompanies" Margin="5" Grid.Row="1" BorderThickness="0.5" BorderBrush="LightGray" IncrementalLoadingTrigger="Edge">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Company">
                     <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <TextBlock Grid.Row="2" Foreground="DarkGreen" Margin="5">Welcome !!!</TextBlock>
 
     </Grid>
 </Page>
