@@ -1,79 +1,74 @@
 <html lang="en-US">
-
     <head><meta charset="utf-8"/></head>
-
     <body>
         <div>
             <button id="BtnCallApi" onclick="LoadCompanies()">Load List</button>
             <button id="BtnClear" onclick="ClearList()">Clear List</button>
-            <input type="text" id="EditBoxStatus" disabled style="width:240px" />
-            <input type="text" id="EditBoxUrl" style="width:300px" />
+            <input type="text" id="EditBoxStatus" disabled style="width:260px" />
+            <input type="text" id="EditBoxUrl" style="width:280px" />
             <button id="BtnClearConsole" onclick="ClearConsole()">Clear Console</button>
         </div>
         <div style="margin-top: 5px; width: 800px; height: 600px; border: 0.5px solid lightgray">
-            <ul id="CompaniesList" style="height: 560px; overflow: hidden; overflow-y:scroll" ></ul>
+            <ul id="CompaniesList" onclick="RenderedClick()"
+            style="height: 560px; overflow: hidden; overflow-y:scroll" ></ul>
         </div>        
     </body>
 
-    <script>
-        var GlobalHostAndPort = "localhost:51404";
-
+    <script>                  
+        var startTime;
+        var HostAndPort = "localhost:51404";
+        var EditBoxStatus = document.getElementById("EditBoxStatus");
+       
         document.body.onload = function()
         {
             document.getElementById("EditBoxUrl").value = 
-                "http://" + GlobalHostAndPort + "/api/asynch/10000";
+                "http://" + HostAndPort + "/api/asynch/10000";
         }
-        
+
         function LoadCompanies()
         {
-            var startTime;
             var apiUrl = document.getElementById("EditBoxUrl").value;
-
-            var list = document.getElementById("CompaniesList");
-            var editBoxStatus = document.getElementById("EditBoxStatus");
+            var list = document.getElementById("CompaniesList");            
             
             var xhr = new XMLHttpRequest();
             xhr.open("GET", apiUrl, true);
-            //xhr.responseType = 'json';
 
-            xhr.onprogress = function () { editBoxStatus.value = "Loading..."; }
-
-            xhr.onload = function()
+            xhr.onload = () =>
             {
-                //if (xhr.readyState != 4) return;
-
-                editBoxStatus.value = 'Rendering...';
-
+                startTime = performance.now();
                 var result = JSON.parse(xhr.responseText);
-
-                for(i = 0; i < result.length; i++)
-                {
+               
+                result.forEach((item) => {
                     var li = document.createElement("li");
-                    li.appendChild(document.createTextNode(result[i].name));
+                    li.appendChild(document.createTextNode(item.name));
                     list.appendChild(li);
-                }
+                });
 
-                var endTime = new Date().getTime();
-                editBoxStatus.value = 'Done (' + result.length + " records). Time: " + (endTime - startTime);
-            }            
+                EditBoxStatus.value = "Loaded (" + Math.round(performance.now() - startTime) + " milisec)";
+            }
 
-            editBoxStatus.value = "Request sent";
-            startTime = new Date().getTime();
             xhr.send();
+            EditBoxStatus.value = "Request Sent";
         }
 
         function ClearList()
         {
             document.getElementById("CompaniesList").innerHTML = "";
-            document.getElementById("EditBoxStatus").value = "List Cleared";
+            EditBoxStatus.value = "List Cleared";
         }
 
         function ClearConsole()
         {
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "http://" + GlobalHostAndPort + "/api/test", true);
+            xhr.open("GET", "http://" + HostAndPort + "/api/test", true);
             xhr.send();
-            document.getElementById("EditBoxStatus").value = "Console Cleared";
+            EditBoxStatus.value = "Console Cleared";
+        }
+
+        function RenderedClick()
+        {
+            EditBoxStatus.value += " Rendered (" + 
+                Math.round((performance.now() - startTime)/1000) + " sec)";
         }
     </script>
 

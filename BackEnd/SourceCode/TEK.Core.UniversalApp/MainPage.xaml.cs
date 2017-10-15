@@ -47,7 +47,7 @@ namespace TEK.Core.UniversalApp
                             await Task.Run(() => JsonConvert.DeserializeObject<List<Company>>(result));
                         
                         stopWatch.Stop();
-                        this.TbSatatus.Text += $"Done. Total time: ({stopWatch.ElapsedMilliseconds/1000} seconds)";
+                        this.TbSatatus.Text += $"Done. Total time: ({stopWatch.ElapsedMilliseconds/1000} sec)";
                     }
                 }
             }

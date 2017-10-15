@@ -24,15 +24,13 @@
             <TextBox Grid.Column="2" Name="TbUri" Margin="5,0,0,0" Text="http://localhost:51404/api/asynch/1000000" />
         </Grid>
 
-        <ListView Name="ListCompanies" Margin="5" Grid.Row="1" BorderThickness="0.5" BorderBrush="LightGray" IncrementalLoadingTrigger="Edge">
+        <ListView Name="ListCompanies" Margin="5" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Company">
                     <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <TextBlock Grid.Row="2" Foreground="DarkGreen" Margin="5">Welcome !!!</TextBlock>
-
     </Grid>
+    
 </Page>
