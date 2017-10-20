@@ -37,7 +37,7 @@ namespace TEK.Core.WebApi.Controllers
                 .ToListAsync();
 
 			watch.Stop();
-            Console.Write($"..--> [{threadId}] Loaded aSynch ({watch.ElapsedMilliseconds} miliSec).");
+            Console.WriteLine($"..--> [{threadId}] Loaded aSynch ({watch.ElapsedMilliseconds} miliSec).");
 
             Program.TotalTime += watch.ElapsedMilliseconds;
 

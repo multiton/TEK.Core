@@ -7,7 +7,7 @@ namespace TEK.Core.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.Write("Start the web-api host and press Enter to send request");
+			Console.Write("Start the web-api host and press Enter to send request");
             Console.ReadLine();
 
             do

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TEK.Core.WebApi.Controllers
 {
@@ -9,7 +10,11 @@ namespace TEK.Core.WebApi.Controllers
         [HttpGet]
         public long Get()
         {
-            return Program.TotalTime;
+			var totalTime = Program.TotalTime;
+			Program.TotalTime = 0;
+
+			Console.WriteLine($"\nTotal time: {totalTime}");
+			return totalTime;
         }
     }
 }
