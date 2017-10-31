@@ -22,7 +22,7 @@ namespace TEK.Core.WebApi.Controllers
             Console.Write("\n== Controller constructed ==");
         }
 
-        [Route("api/[controller]/{count:int}")]
+		[Route("api/[controller]/{count:int}")]
         public IActionResult Get(int count)
         {
             var threadId = Thread.CurrentThread.ManagedThreadId;

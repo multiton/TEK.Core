@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 using TEK.Core.ResourceAccess.EF;
 
@@ -24,7 +25,7 @@ namespace TEK.Core.WebApi.Controllers
             Console.Write("\n== Controller constructed ==");
         }
 
-        [Route("api/[controller]/{count:int}")]
+		[Route("api/[controller]/{count:int}")]
         public async Task<IActionResult> Get(int count)
         {
 			var threadId = Thread.CurrentThread.ManagedThreadId;
