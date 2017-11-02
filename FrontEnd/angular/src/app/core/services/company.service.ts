@@ -16,7 +16,7 @@ export class CompanyService
   getAll() : Observable<Company[]>
   {
     return this.http
-    .get<Company[]>('http://localhost:51404/api/asynch/1000  ')
+    .get<Company[]>('http://localhost:51404/api/asynch/1000')
     .catch(this.handleError);
   }
 
