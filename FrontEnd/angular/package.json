@@ -2,9 +2,10 @@
   "name": "tek-core-app",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {
+  "scripts":
+  {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

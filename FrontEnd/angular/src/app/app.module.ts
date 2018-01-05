@@ -8,9 +8,9 @@ import { CompanyService } from './core/services/company.service';
 
 @NgModule(
 {
-  declarations: [AppComponent],
-  imports: [ BrowserModule, CompanyModule, HttpClientModule ],
-  providers: [CompanyService],
-  bootstrap: [AppComponent]
+  declarations: [ AppComponent ],
+  imports:   [ BrowserModule, CompanyModule, HttpClientModule ],
+  providers: [ CompanyService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

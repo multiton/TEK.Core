@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CompanyService } from './core/services/company.service';
 import { Company } from './core/models/company';
-import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { Observable } from "rxjs/Observable";
 })
 export class AppComponent
 {
-  private companies; //: Observable<Array<Company>>; //: Array<Company> = []; // Observable?
+  private companies : Company[];
 
   constructor(private companyService : CompanyService) { }
 
