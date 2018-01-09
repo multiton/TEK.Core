@@ -6,14 +6,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-import { Company } from '../models/company';
+import { Company } from './company.model';
 
 @Injectable()
 export class CompanyService
 {
   constructor(private http: HttpClient) { }
   
-  getAll() : Observable<Company[]>
+  public getAll() : Observable<Company[]>
   {
     return this.http
     .get<Company[]>('http://localhost:51404/api/asynch/1000')
