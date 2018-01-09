@@ -1,5 +1,8 @@
-<ul>
-    <li *ngFor="let company of companies">
-      <p> <a href="#">{{company.id}}</a> {{company.name}}</p>
-    </li>
-</ul>
+<table>
+  <tr *ngFor="let company of companies">
+    <td><a routerLink="company/edit">{{company.id}}</a></td>
+    <td>{{company.name}}</td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>

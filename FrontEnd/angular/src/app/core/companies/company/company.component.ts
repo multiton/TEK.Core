@@ -18,8 +18,7 @@ export class CompanyComponent implements OnInit, OnDestroy
 
   ngOnInit(): void
   {
-    // this.subscription = this.companyService
-    //   .get(123)
+    // this.subscription = this.companyService.get(123)
     //   .subscribe(data => this.company = data);
   }
 
