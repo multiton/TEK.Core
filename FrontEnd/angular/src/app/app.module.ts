@@ -13,7 +13,7 @@ const appRoutes: Routes =
 [{
     path: 'company-list',
     component: CompanyListComponent,
-    children: [{ path: 'company/edit', component: CompanyComponent }]
+    children: [{ path: 'company/edit/:id', component: CompanyComponent }]
 }];
 
 @NgModule(

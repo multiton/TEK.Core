@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ISubscription } from 'rxjs/Subscription';
+import { ActivatedRoute } from "@angular/router";
 
 import { Company } from '../shared/company.model';
 import { CompanyService } from '../shared/company.srevice';
@@ -14,11 +15,13 @@ export class CompanyComponent implements OnInit, OnDestroy
   private company : Company;
   private subscription: ISubscription;
 
-  constructor(private companyService : CompanyService) { }
+  constructor(private route: ActivatedRoute, private companyService : CompanyService) { }
 
   ngOnInit(): void
   {
-    // this.subscription = this.companyService.get(123)
+    this.company = { id: this.route.snapshot.params.id, name: "Zavod 123" };
+    
+    // this.subscription = this.companyService.get(this.route.snapshot.params.id)
     //   .subscribe(data => this.company = data);
   }
 
