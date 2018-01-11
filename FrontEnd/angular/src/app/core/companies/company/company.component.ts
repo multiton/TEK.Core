@@ -12,24 +12,43 @@ import { CompanyService } from '../shared/company.srevice';
 })
 export class CompanyComponent implements OnInit, OnDestroy
 {
-  private company : Company;
+  private company : Company; //= {id: 0, name: ""};
   private subscription: ISubscription;
 
   constructor(private route: ActivatedRoute, private companyService : CompanyService) { }
 
   ngOnInit(): void
-  {
-    this.company = { id: this.route.snapshot.params.id, name: "Zavod 123" };
+  {   
+    //console.log("ID=" + this.route.snapshot.params.id);
     
-    // this.subscription = this.companyService.get(this.route.snapshot.params.id)
+    //console.log(this.route.data.subscribe(....));
+
+    this.route.data.subscribe(
+      (data: {company: Company}) =>
+      {
+        this.company = data.company;
+
+        this.companyService
+          .get(this.route.snapshot.params.id)
+          .subscribe(data => this.company = data);       
+        
+        // this.userService.currentUser.subscribe(
+        //   (userData: User) =>
+        //   {
+        //     this.currentUser = userData;
+        //     this.isUser = (this.currentUser.username === this.profile.username);
+        //   }
+        // );
+      }
+    );
+
+    // this.subscription = this.companyService
+    //   .get(this.route.snapshot.params.id)
     //   .subscribe(data => this.company = data);
   }
 
   ngOnDestroy()
   {
-    if (!!this.subscription)
-    {
-      this.subscription.unsubscribe();
-    }
+    if (!!this.subscription) this.subscription.unsubscribe();
   }
 }

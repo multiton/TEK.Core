@@ -16,8 +16,15 @@ export class CompanyService
   public getAll() : Observable<Company[]>
   {
     return this.http
-    .get<Company[]>('http://localhost:51404/api/asynch/1000')
-    .catch(this.handleError);
+      .get<Company[]>('http://localhost:51404/api/Company')
+      .catch(this.handleError);
+  }
+
+  public get(id: number) : Observable<Company>
+  {
+    return this.http
+      .get<Company>('http://localhost:51404/api/Company/'+id)
+      .catch(this.handleError);
   }
 
   private handleError(err: HttpErrorResponse)
