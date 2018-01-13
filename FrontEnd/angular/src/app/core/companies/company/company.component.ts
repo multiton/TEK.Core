@@ -18,33 +18,13 @@ export class CompanyComponent implements OnInit, OnDestroy
   constructor(private route: ActivatedRoute, private companyService : CompanyService) { }
 
   ngOnInit(): void
-  {   
-    //console.log("ID=" + this.route.snapshot.params.id);
-    
-    //console.log(this.route.data.subscribe(....));
+  {     
+    // this.route.data.subscribe(data => console.dir(data));
 
-    this.route.data.subscribe(
-      (data: {company: Company}) =>
-      {
-        this.company = data.company;
-
-        this.companyService
-          .get(this.route.snapshot.params.id)
-          .subscribe(data => this.company = data);       
-        
-        // this.userService.currentUser.subscribe(
-        //   (userData: User) =>
-        //   {
-        //     this.currentUser = userData;
-        //     this.isUser = (this.currentUser.username === this.profile.username);
-        //   }
-        // );
-      }
-    );
-
-    // this.subscription = this.companyService
-    //   .get(this.route.snapshot.params.id)
-    //   .subscribe(data => this.company = data);
+    this.subscription =
+       this.companyService
+       .get(this.route.snapshot.params.id)
+       .subscribe(data => this.company = data);
   }
 
   ngOnDestroy()
