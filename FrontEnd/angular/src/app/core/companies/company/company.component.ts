@@ -12,15 +12,13 @@ import { CompanyService } from '../shared/company.srevice';
 })
 export class CompanyComponent implements OnInit, OnDestroy
 {
-  private company : Company; //= {id: 0, name: ""};
+  private company : Company;
   private subscription: ISubscription;
 
   constructor(private route: ActivatedRoute, private companyService : CompanyService) { }
 
   ngOnInit(): void
   {     
-    // this.route.data.subscribe(data => console.dir(data));
-
     this.subscription =
        this.companyService
        .get(this.route.snapshot.params.id)

@@ -1,33 +1,23 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ISubscription } from 'rxjs/Subscription';
+import { Component, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 
 import { Company } from '../shared/company.model';
 import { CompanyService } from '../shared/company.srevice';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-company-list',
   templateUrl: './company-list.component.html',
   styleUrls: ['./company-list.component.css']
 })
-export class CompanyListComponent implements OnInit, OnDestroy
+export class CompanyListComponent implements OnInit
 {
-  private companies : Company[];
-  private subscription: ISubscription;
+  private companies : Observable<Company[]>;
 
   constructor(private companyService : CompanyService) { }
 
   ngOnInit(): void
   {
-    this.subscription = this.companyService
-      .getAll()
-      .subscribe(data => this.companies = data);
-  }
-
-  ngOnDestroy()
-  {
-    if (!!this.subscription)
-    {
-      this.subscription.unsubscribe();
-    }
+    this.companies = this.companyService.getAll()
   }
 }
