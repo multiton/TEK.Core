@@ -15,10 +15,10 @@ export class CompanyComponent implements OnInit
 {
   private company : Observable<Company>
 
-  constructor(private route: ActivatedRoute, private companyService : CompanyService) { }
+  constructor(private companyService : CompanyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void
-  {     
+  {
        this.company = this.companyService.get(this.route.snapshot.params.id)
   }
 }
