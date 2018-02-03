@@ -10,7 +10,9 @@ namespace TEK.Core.ResourceAccess.EF
 
 		public DbSet<OrderHeader> OrderHeaders { get; set; }
 
-		public DataContext(DbContextOptions options) : base(options) { }
+        public DbSet<ConfigValue> ConfigValues { get; set; }
+
+        public DataContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
