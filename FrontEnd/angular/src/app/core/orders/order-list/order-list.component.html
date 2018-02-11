@@ -1,0 +1,8 @@
+<table>
+  <tr *ngFor="let order of orders | async">
+    <td><a [routerLink]="['order/edit', order.id]">{{order.id}}</a></td>
+    <td>{{order.number}}</td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>

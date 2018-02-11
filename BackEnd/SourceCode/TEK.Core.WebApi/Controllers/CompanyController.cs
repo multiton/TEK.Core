@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,16 +10,9 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-	[Produces("application/json")]
-	[EnableCors("AllowSpecificOrigin")]
-	public class CompanyController : Controller
+	public class CompanyController : BaseController
     {
-		private readonly DataContext dataContext;
-
-		public CompanyController(DataContext dataContext)
-		{
-			this.dataContext = dataContext;
-		}
+        public CompanyController(DataContext dataContext) : base (dataContext) { }
 
 		[Route("api/[controller]")]
 		public async Task<IActionResult> Get()

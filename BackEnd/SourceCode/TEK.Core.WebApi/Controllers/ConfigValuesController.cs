@@ -12,17 +12,15 @@ namespace TEK.Core.WebApi.Controllers
 {
     [Produces("application/json")]
     [Route("api/ConfigValues")]
-    public class ConfigValuesController : Controller
+    public class ConfigValuesController : BaseController
     {
-        private readonly DataContext context;
-
-        public ConfigValuesController(DataContext context) { this.context = context; }
+        public ConfigValuesController(DataContext context) : base(context) { }
 
         // GET: api/ConfigValues
         [HttpGet]
         public IEnumerable<ConfigValue> GetConfigValues()
         {
-            return context.ConfigValues;
+            return this.dataContext.ConfigValues;
         }
 
         // GET: api/ConfigValues/5
@@ -34,7 +32,7 @@ namespace TEK.Core.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var configValue = await context.ConfigValues.SingleOrDefaultAsync(m => m.Id == id);
+            var configValue = await this.dataContext.ConfigValues.SingleOrDefaultAsync(m => m.Id == id);
 
             if (configValue == null)
             {
@@ -58,11 +56,11 @@ namespace TEK.Core.WebApi.Controllers
                 return BadRequest();
             }
 
-            context.Entry(configValue).State = EntityState.Modified;
+            this.dataContext.Entry(configValue).State = EntityState.Modified;
 
             try
             {
-                await context.SaveChangesAsync();
+                await this.dataContext.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -88,8 +86,8 @@ namespace TEK.Core.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            context.ConfigValues.Add(configValue);
-            await context.SaveChangesAsync();
+            this.dataContext.ConfigValues.Add(configValue);
+            await this.dataContext.SaveChangesAsync();
 
             return CreatedAtAction("GetConfigValue", new { id = configValue.Id }, configValue);
         }
@@ -103,22 +101,22 @@ namespace TEK.Core.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var configValue = await context.ConfigValues.SingleOrDefaultAsync(m => m.Id == id);
+            var configValue = await this.dataContext.ConfigValues.SingleOrDefaultAsync(m => m.Id == id);
 
             if (configValue == null)
             {
                 return NotFound();
             }
 
-            context.ConfigValues.Remove(configValue);
-            await context.SaveChangesAsync();
+            this.dataContext.ConfigValues.Remove(configValue);
+            await this.dataContext.SaveChangesAsync();
 
             return Ok(configValue);
         }
 
         private bool ConfigValueExists(int id)
         {
-            return context.ConfigValues.Any(e => e.Id == id);
+            return this.dataContext.ConfigValues.Any(e => e.Id == id);
         }
     }
 }
