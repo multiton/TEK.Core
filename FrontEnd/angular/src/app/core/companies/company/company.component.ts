@@ -7,7 +7,6 @@ import { Company } from '../shared/company.model'
 import { CompanyService } from '../shared/company.srevice'
 
 @Component({
-  selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css']
 })

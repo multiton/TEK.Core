@@ -6,7 +6,6 @@ import { CompanyService } from '../shared/company.srevice'
 import { Observable } from 'rxjs/Observable'
 
 @Component({
-  selector: 'app-company-list',
   templateUrl: './company-list.component.html',
   styleUrls: ['./company-list.component.css']
 })

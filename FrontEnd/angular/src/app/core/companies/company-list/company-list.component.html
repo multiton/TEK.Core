@@ -1,8 +1,6 @@
 <table>
   <tr *ngFor="let company of companies | async">
-    <td><a [routerLink]="['company/edit', company.id]">{{company.id}}</a></td>
+    <td><a [routerLink]="['/company', company.id]">{{company.id}}</a></td>
     <td>{{company.name}}</td>
   </tr>
 </table>
-
-<router-outlet></router-outlet>

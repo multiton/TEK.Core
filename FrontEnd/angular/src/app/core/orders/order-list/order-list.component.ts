@@ -6,7 +6,6 @@ import { OrderService } from '../shared/order.srevice'
 import { Observable } from 'rxjs/Observable'
 
 @Component({
-  selector: 'app-order-list',
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })
