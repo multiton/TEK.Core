@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { CompanyService } from './shared/company.srevice';
 import { CompanyComponent } from './company/company.component';
 import { CompanyListComponent } from './company-list/company-list.component';
-
 import { CompanyRoutingModule } from './companies-routing.module';
 
 @NgModule(

@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": { "name": "tek-core-app" },
   "apps": [
-    {
+  {
       "root": "src",
       "outDir": "dist",
       "assets": ["assets"],
@@ -21,7 +21,7 @@
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
-    }
+   }
   ],
   "e2e": {
     "protractor": { "config": "./protractor.conf.js" }
