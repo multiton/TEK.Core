@@ -4,5 +4,6 @@ export interface Order
 {
     id: number;
     number: string;
+    shippingDate: Date;
     customer: Company;
 }

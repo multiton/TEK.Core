@@ -18,7 +18,7 @@ namespace TEK.Core.WebApi.Controllers
         {
             var result = await this.dataContext.OrderHeaders.Select(x => new
 			{
-				x.Id, x.Number,	x.IsNew, Customer = new { x.Customer.Id, x.Customer.Name }
+				x.Id, x.Number,	x.IsNew, x.ShippingDate, Customer = new { x.Customer.Id, x.Customer.Name }
 			})
 			.OrderBy(x => x.Number).Take(25).ToListAsync();
 

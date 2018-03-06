@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TEK.Core.Entity
 {
@@ -8,6 +9,9 @@ namespace TEK.Core.Entity
         [StringLength(255)]
         public string Number { get; set; }
 
-        public virtual Company Customer { get; set; }
+		[Required]
+		public DateTime ShippingDate { get; set; }
+
+		public virtual Company Customer { get; set; }
     }
 }
