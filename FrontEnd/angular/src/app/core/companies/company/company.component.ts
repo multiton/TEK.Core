@@ -6,18 +6,17 @@ import { Observable } from 'rxjs/Observable';
 import { Company } from '../shared/company.model'
 import { CompanyService } from '../shared/company.srevice'
 
-@Component({
-  templateUrl: './company.component.html',
-  styleUrls: ['./company.component.css']
-})
+@Component({templateUrl: './company.component.html'})
 export class CompanyComponent implements OnInit
 {
   private company : Observable<Company>
 
-  constructor(private companyService : CompanyService, private route: ActivatedRoute) { }
+  constructor(
+    private companyService : CompanyService,
+    private route: ActivatedRoute)  { }
 
   ngOnInit(): void
   {
-       this.company = this.companyService.get(this.route.snapshot.params.id)
+    this.company = this.companyService.get(this.route.snapshot.params.id)
   }
 }

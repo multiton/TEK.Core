@@ -5,10 +5,7 @@ import { Order } from '../shared/order.model'
 import { OrderService } from '../shared/order.srevice'
 import { Observable } from 'rxjs/Observable'
 
-@Component({
-  templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
-})
+@Component({ templateUrl: './order-list.component.html' })
 export class OrderListComponent implements OnInit
 {
   private orders : Observable<Order[]>

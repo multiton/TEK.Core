@@ -14,4 +14,8 @@ const companyRoutes: Routes =
   imports: [ RouterModule.forChild(companyRoutes) ],
   exports: [ RouterModule ]
 })
-export class CompanyRoutingModule { }
+export class CompanyRoutingModule
+{
+  // Give each feature module its own route configuration file.
+  // Routes have a tendency to grow...
+}
