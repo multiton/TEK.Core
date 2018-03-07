@@ -2,7 +2,8 @@ h1
 {
     color: #369;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 250%;
+    font-size: 200%;
+    margin: 10px;
 }
 
 h2, h3
@@ -12,10 +13,9 @@ h2, h3
     font-weight: lighter;
 }
 
-body { margin: 2em; }
+body { margin: 1em; }
 
 body, input[text], button
-
 {
     color: #888;
     font-family: Cambria, Georgia;
@@ -27,11 +27,13 @@ button
 {
     font-family: Arial;
     background-color: #eee;
-    border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     cursor: hand;
+    border-style: solid;
+    border-width: thin;
+    border-color:#DFD9D9;
 }
 
 button:hover { background-color: #cfd8dc; }
@@ -43,7 +45,8 @@ button:disabled
     cursor: auto;
 }
   
-/* Navigation link styles */
+nav { margin-bottom: 15px; }
+
 nav a
 {
     padding: 5px 10px;
@@ -61,13 +64,12 @@ nav a:hover { color: #039be5; background-color: #CFD8DC; }
 
 nav a.active { color: #039be5; }
   
-/* items class */
 .items
 {
-    margin: 0 0 2em 0;
+    margin: 0 0 1em 0;
     list-style-type: none;
     padding: 0;
-    width: 24em;
+    width: 20em;
 }
 
 .items td
@@ -77,8 +79,7 @@ nav a.active { color: #039be5; }
     left: 0;
     background-color: #EEE;
     margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
+    padding: .3em;
     border-radius: 4px;
 }
 
@@ -114,18 +115,8 @@ nav a.active { color: #039be5; }
 
 .items .badge
 {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-  }
+    color: #5F5D5D;
+    background-color: #D3D5D5;
+}
 
 * { font-family: Arial, Helvetica, sans-serif; }

@@ -1,9 +1,7 @@
 <table class="items">
   <tr *ngFor="let order of orders | async">
-    <td>
-      <a [routerLink]="['/order', order.id]">
-        <span class="badge">{{order.number}}</span>
-      </a>
+    <td class="badge">
+      <a [routerLink]="['/order', order.id]">{{order.number}}</a>
     </td>
     <td>{{order.customer.name}}</td>
     <td>{{order.shippingDate | date: 'dd-MM-yyyy' }}</td>
