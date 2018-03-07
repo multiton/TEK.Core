@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { AsyncPipe } from '@angular/common'
-import { ActivatedRoute } from "@angular/router"
+import { ActivatedRoute, Router } from "@angular/router"
 import { Observable } from 'rxjs/Observable';
 
 import { Company } from '../shared/company.model'
@@ -13,10 +13,17 @@ export class CompanyComponent implements OnInit
 
   constructor(
     private companyService : CompanyService,
-    private route: ActivatedRoute)  { }
+    private route: ActivatedRoute,
+    private router: Router)  { }
 
   ngOnInit(): void
   {
     this.company = this.companyService.get(this.route.snapshot.params.id)
+  }
+
+  save(newCompany: Company)
+  {
+    let companyId = newCompany ? newCompany.id : null;
+    this.router.navigate(['/companies', { id: companyId }]);
   }
 }

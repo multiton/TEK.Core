@@ -27,6 +27,6 @@ export class AppModule
   constructor(router: Router)
   {
     // Just to display/inspect final router configuration (can be deleted)
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }

@@ -17,8 +17,6 @@ namespace TEK.Core.WebApi.Controllers
 		[Route("api/[controller]")]
 		public async Task<IActionResult> Get()
 		{
-			Console.WriteLine("Get companies list");
-
 			var result = await this.dataContext.Companies
 				.OrderBy(x => x.Name).Take(25).ToListAsync();
 

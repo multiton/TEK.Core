@@ -119,4 +119,11 @@ nav a.active { color: #039be5; }
     background-color: #D3D5D5;
 }
 
+.data-container
+{
+    height: 505px; overflow-y: scroll; width: min-content;
+}
+
+.selectedRow { font-weight: bold; }
+
 * { font-family: Arial, Helvetica, sans-serif; }

@@ -1,4 +1,5 @@
-<p>
-<label>ID:</label> {{(company | async)?.id }}
-<br>
-<label>Name:</label> {{(company | async)?.name }}
+<div *ngIf="company | async as cmp">
+    <br><label>ID:</label> {{cmp.id }}
+    <br><label>Name:</label> {{cmp.name }}
+    <br><br><button (click)="save(cmp)" >Save</button>
+</div>
