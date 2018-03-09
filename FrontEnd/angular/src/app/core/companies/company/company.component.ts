@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { AsyncPipe } from '@angular/common'
 import { ActivatedRoute, Router } from "@angular/router"
 import { Observable } from 'rxjs/Observable';
 
@@ -23,7 +22,7 @@ export class CompanyComponent implements OnInit
 
   save(newCompany: Company)
   {
-    let companyId = newCompany ? newCompany.id : null;
+    let companyId = newCompany ? newCompany.id : null; 
     this.router.navigate(['/companies', { id: companyId }]);
   }
 }

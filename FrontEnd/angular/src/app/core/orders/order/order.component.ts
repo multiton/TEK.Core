@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { AsyncPipe } from '@angular/common'
 import { ActivatedRoute } from "@angular/router"
 import { Observable } from 'rxjs/Observable';
 
@@ -15,6 +14,6 @@ export class OrderComponent implements OnInit
 
   ngOnInit(): void
   {
-       this.order = this.orderService.get(this.route.snapshot.params.id)
+    this.order = this.orderService.get(this.route.snapshot.params.id)
   }
 }
