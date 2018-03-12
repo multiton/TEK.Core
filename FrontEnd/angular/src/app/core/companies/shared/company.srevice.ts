@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { Company } from './company.model';
+import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class CompanyService
@@ -16,14 +17,14 @@ export class CompanyService
   public getAll() : Observable<Company[]>
   {
     return this.http
-      .get<Company[]>('http://localhost:51404/api/Company')
+      .get<Company[]>(environment.apiEndpoint + 'Company')
       .catch(this.handleError);
   }
 
   public get(id: number) : Observable<Company>
   {
     return this.http
-      .get<Company>('http://localhost:51404/api/Company/'+id)
+      .get<Company>(environment.apiEndpoint + 'Company/' + id)
       .catch(this.handleError);
   }
 

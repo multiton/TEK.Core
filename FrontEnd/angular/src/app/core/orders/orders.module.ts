@@ -13,4 +13,4 @@ import { OrderRoutingModule } from "./orders-routing.module";
   imports:      [ CommonModule, RouterModule, OrderRoutingModule ],
   providers:    [ OrderService ]
 })
-export class OrderModule { }
+export class OrdersModule { }

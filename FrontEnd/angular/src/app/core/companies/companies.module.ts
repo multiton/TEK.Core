@@ -13,4 +13,4 @@ import { CompanyRoutingModule } from './companies-routing.module';
   imports:      [ CommonModule, RouterModule, CompanyRoutingModule ],
   providers:    [ CompanyService ]
 })
-export class CompanyModule { }
+export class CompaniesModule { }
