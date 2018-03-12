@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs/Observable'
 
 import { Order } from '../shared/order.model'
 import { OrderService } from '../shared/order.srevice'
-import { Observable } from 'rxjs/Observable'
 
 @Component({ templateUrl: './order-list.component.html' })
 export class OrderListComponent implements OnInit

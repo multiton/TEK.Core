@@ -2,7 +2,7 @@ export interface ConfigValue
 {
     id: number
     name: string
-    Description : string
-    CurrentValue : string
-    DefaultValue : string    
+    description : string
+    currentValue : string
+    defaultValue : string    
 }

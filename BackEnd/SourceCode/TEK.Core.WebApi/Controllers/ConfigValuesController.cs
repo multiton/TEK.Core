@@ -9,11 +9,11 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-	[Route("api/ConfigValues")]
+	[Route("api/ConfigValue")]
 	[Produces("application/json")]    
-    public class ConfigValuesController : BaseController
+    public class ConfigValueController : BaseController
     {
-        public ConfigValuesController(DataContext context) : base(context) { }
+        public ConfigValueController(DataContext context) : base(context) { }
 
         // GET: api/ConfigValues
         [HttpGet]

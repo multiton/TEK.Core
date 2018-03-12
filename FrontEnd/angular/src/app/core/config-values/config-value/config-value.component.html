@@ -1,0 +1,5 @@
+<div *ngIf="configValue | async as c">
+    <br><label>ID:</label> {{c.id }}
+    <br><label>Name:</label> {{c.name }}
+    <br><br><button (click)="save(c)" >Save</button>
+</div>
