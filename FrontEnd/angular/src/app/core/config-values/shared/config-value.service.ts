@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
-import { Order } from './order.model';
+import { ConfigValue } from './config-value.model';
 import { RestServiceBase } from '../../../rest-service-base';
 
 @Injectable()
-export class OrderService extends RestServiceBase<Order>
+export class ConfigValueService extends RestServiceBase<ConfigValue>
 {
   constructor(http: HttpClient)
   {
-    super(http, "Order");
+    super(http, "ConfigValue");
   }
 }

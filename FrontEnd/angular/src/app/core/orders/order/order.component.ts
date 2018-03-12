@@ -14,6 +14,6 @@ export class OrderComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.order = this.orderService.get(this.route.snapshot.params.id)
+    this.order = this.orderService.getSingle(this.route.snapshot.params.id)
   }
 }

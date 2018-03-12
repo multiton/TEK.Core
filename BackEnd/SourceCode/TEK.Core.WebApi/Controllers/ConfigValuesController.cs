@@ -47,15 +47,9 @@ namespace TEK.Core.WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutConfigValue([FromRoute] int id, [FromBody] ConfigValue configValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            if (id != configValue.Id)
-            {
-                return BadRequest();
-            }
+            if (id != configValue.Id) return BadRequest();
 
             this.dataContext.Entry(configValue).State = EntityState.Modified;
 
@@ -82,10 +76,7 @@ namespace TEK.Core.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> PostConfigValue([FromBody] ConfigValue configValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             this.dataContext.ConfigValues.Add(configValue);
             await this.dataContext.SaveChangesAsync();

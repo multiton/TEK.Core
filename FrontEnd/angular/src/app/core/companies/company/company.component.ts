@@ -17,7 +17,7 @@ export class CompanyComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.company = this.companyService.get(this.route.snapshot.params.id)
+    this.company = this.companyService.getSingle(this.route.snapshot.params.id);
   }
 
   save(newCompany: Company)
