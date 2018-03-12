@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     OrderModule,        // Module import order matters!!! The routes are no longer
     CompanyModule,      // in one file, they are distributed across many modules...
-    AppRoutingModule,   //
+    AppRoutingModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]

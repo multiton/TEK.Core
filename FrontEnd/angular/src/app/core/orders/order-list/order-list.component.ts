@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { AsyncPipe } from '@angular/common'
 
 import { Order } from '../shared/order.model'
 import { OrderService } from '../shared/order.srevice'
