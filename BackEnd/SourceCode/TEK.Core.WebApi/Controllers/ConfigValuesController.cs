@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
@@ -10,18 +9,20 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-    [Produces("application/json")]
-    [Route("api/ConfigValues")]
+	[Route("api/ConfigValues")]
+	[Produces("application/json")]    
     public class ConfigValuesController : BaseController
     {
         public ConfigValuesController(DataContext context) : base(context) { }
 
         // GET: api/ConfigValues
         [HttpGet]
-        public IEnumerable<ConfigValue> GetConfigValues()
+        public async Task<IActionResult> GetConfigValues()
         {
-            return this.dataContext.ConfigValues;
-        }
+            var result = await this.dataContext.ConfigValues.OrderBy(x => x.Name).ToListAsync();
+
+			return Ok(result);
+		}
 
         // GET: api/ConfigValues/5
         [HttpGet("{id}")]
