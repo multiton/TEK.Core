@@ -45,7 +45,9 @@ namespace TEK.Core.WebApi.Controllers
 
         // PUT: api/ConfigValues/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutConfigValue([FromRoute] int id, [FromBody] ConfigValue configValue)
+        public async Task<IActionResult> PutConfigValue(
+			[FromRoute] int id,
+			[FromBody] ConfigValue configValue)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 

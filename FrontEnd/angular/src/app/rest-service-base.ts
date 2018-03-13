@@ -9,7 +9,7 @@ export abstract class RestServiceBase<T>
 {   
     constructor(protected http: HttpClient, protected actionUrl: string) { }
   
-    getAll():Observable<T[]>
+    getAll() : Observable<T[]>
     {
         return this.http
             .get<T[]>(`${environment.apiEndpoint}${this.actionUrl}`)
@@ -23,26 +23,30 @@ export abstract class RestServiceBase<T>
             .catch(this.handleError);
     }
 
-    private handleError(err: HttpErrorResponse)
-    {
-        console.log(err.message);
-        return Observable.throw(err);
-    }
-
     post<T>(item: T)
     {
-        return this.http.post<T>(`${environment.apiEndpoint}${this.actionUrl}`, item);
+        return this.http
+            .post<T>(`${environment.apiEndpoint}${this.actionUrl}`, item)
+            .catch(this.handleError);
     }
     
     put<T>(id: number, item: T)
     {
-        return this.http.put<T>(
-            `${environment.apiEndpoint}${this.actionUrl}/${id}`,
-            item);
+        return this.http
+            .put<T>(`${environment.apiEndpoint}${this.actionUrl}/${id}`,item)
+            .catch(this.handleError);;
     }
     
-    delete(id: number)
+    delete(id: number) : Observable<T>
     {
-        return this.http.delete(`${environment.apiEndpoint}${this.actionUrl}/${id}`);
+        return this.http
+            .delete(`${environment.apiEndpoint}${this.actionUrl}/${id}`)
+            .catch(this.handleError);
+    }
+
+    private handleError(err: HttpErrorResponse)
+    {
+        console.log(err.message);
+        return Observable.throw(err);
     }
 }

@@ -10,11 +10,14 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
+	[Route("api/Company")]
+	[Produces("application/json")]
 	public class CompanyController : BaseController
     {
         public CompanyController(DataContext dataContext) : base (dataContext) { }
 
-		[Route("api/[controller]")]
+		[HttpGet]
+		//[Route("api/[controller]")]
 		public async Task<IActionResult> Get()
 		{
 			var result = await this.dataContext.Companies
@@ -23,12 +26,31 @@ namespace TEK.Core.WebApi.Controllers
 			return Ok(result);
 		}
 
-		[Route("api/[controller]/{id:int}")]
+		[HttpGet("{id}")]
+		//[Route("api/[controller]/{id:int}")]
 		public async Task<Company> Get(int id)
         {
 			Console.WriteLine($"Get company {id}");
 
 			return await this.dataContext.Companies.FindAsync(id);
         }
-    }
+
+		// DELETE: api/Company/5
+		[HttpDelete("{id}")]
+		//[Route("api/[controller]/{id:int}")]
+		public async Task<IActionResult> Delete(int id)
+		{
+			if (!ModelState.IsValid) return BadRequest(ModelState);
+
+			var company =
+				await this.dataContext.Companies.SingleOrDefaultAsync(m => m.Id == id);
+
+			if (company == null) return NotFound();
+
+			this.dataContext.Companies.Remove(company);
+			await this.dataContext.SaveChangesAsync();
+
+			return Ok(company);
+		}
+	}
 }

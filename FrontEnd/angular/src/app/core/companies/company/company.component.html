@@ -1,5 +1,7 @@
 <div *ngIf="company | async as cmp">
     <br><label>ID:</label> {{cmp.id }}
     <br><label>Name:</label> {{cmp.name }}
-    <br><br><button (click)="save(cmp)" >Save</button>
+    <br><br>
+    <button (click)="save(cmp)">Save</button>
+    <button (click)="delete(cmp)">Delete</button>
 </div>

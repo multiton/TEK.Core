@@ -25,4 +25,13 @@ export class CompanyComponent implements OnInit
     let companyId = newCompany ? newCompany.id : null; 
     this.router.navigate(['/companies', { id: companyId }]);
   }
+
+  delete(existingCompany: Company)
+  {
+    let companyId = existingCompany ? existingCompany.id : null; 
+
+    this.companyService.delete(companyId).subscribe();
+
+    this.router.navigate(['/companies']);
+  }
 }
