@@ -1,8 +1,12 @@
-<nav>  
-  <button routerLink="companies">Companies</button>
-  <button routerLink="orders">Orders</button>  
-  <button>Inventory</button>
-  <button routerLink="configValues">Settings</button>
-</nav>
-
-<router-outlet></router-outlet>
+<div id="mainContainer">
+  <nav id="leftMenu">
+    <button routerLink="companies">Companies</button>
+    <button routerLink="orders">Orders</button>  
+    <button>Inventory</button>
+    <button routerLink="configValues">Settings</button>
+  </nav>
+  <div id="centralContent">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="rightPannel"></div>
+</div>

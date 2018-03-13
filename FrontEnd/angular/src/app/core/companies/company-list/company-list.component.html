@@ -1,10 +1,16 @@
-<div class="data-container">
-  <table class="items">
-    <tr *ngFor="let company of companies | async" [class.selectedRow]="company.id == selectedId" >
-      <td class="badge">
-        <a [routerLink]="['/company', company.id]">{{company.id}}</a>
-      </td>
-      <td>{{company.name}}</td>
-    </tr>
-  </table>
+<div>
+
+  &nbsp;Companies <input (keyup) = "search($event.target.value)" placeholder = "Search" />
+
+  <div class="data-container">
+    <table class="items">
+      <tr *ngFor="let company of companies | async" [class.selectedRow]="company.id == selectedId" >
+        <td class="badge">
+          <a [routerLink]="['/company', company.id]">{{company.id}}</a>
+        </td>
+        <td>{{company.name}}</td>
+      </tr>
+    </table>
+  </div>
+
 </div>

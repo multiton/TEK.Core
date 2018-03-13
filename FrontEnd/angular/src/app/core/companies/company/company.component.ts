@@ -28,10 +28,10 @@ export class CompanyComponent implements OnInit
 
   delete(existingCompany: Company)
   {
-    let companyId = existingCompany ? existingCompany.id : null; 
-
-    this.companyService.delete(companyId).subscribe();
-
-    this.router.navigate(['/companies']);
+    if (existingCompany)
+    {
+      this.companyService.delete(existingCompany.id).subscribe();
+      this.router.navigate(['/companies']);
+    }
   }
 }
