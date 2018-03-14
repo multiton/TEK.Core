@@ -25,4 +25,9 @@ export class CompanyListComponent implements OnInit
         return this.companyService.getAll();
     });      
   }
+
+  search(companyName: string)
+  {
+    console.log(companyName);
+  }
 }
