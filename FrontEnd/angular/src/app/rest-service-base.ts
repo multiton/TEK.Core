@@ -24,6 +24,11 @@ export abstract class RestServiceBase<T>
         return this.http.get<T>(`${this.baseUrl}/${id}`).catch(this.handleError);
     }
 
+    getFiltered(filter: string) : Observable<T[]>
+    {
+        return this.http.get<T[]>(`${this.baseUrl}/${filter}`).catch(this.handleError);
+    }
+
     post<T>(item: T) : Observable<T>
     {
         return this.http.post<T>(this.baseUrl, item).catch(this.handleError);

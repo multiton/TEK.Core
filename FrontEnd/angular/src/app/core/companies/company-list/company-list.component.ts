@@ -23,11 +23,11 @@ export class CompanyListComponent implements OnInit
     {
         this.selectedId = +params.get('id');
         return this.companyService.getAll();
-    });      
+    });
   }
 
   search(companyName: string)
   {
-    console.log(companyName);
+    this.companies = this.companyService.getFiltered(`name/${companyName}`);
   }
 }
