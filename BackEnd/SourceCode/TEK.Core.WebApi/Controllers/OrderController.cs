@@ -9,12 +9,13 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-    public class OrderController : BaseController
+	[Route("api/[controller]")]
+	public class OrderController : BaseController
     {
         public OrderController(DataContext dataContext) : base(dataContext) { }
 
-        [Route("api/[controller]")]
-        public async Task<IActionResult> Get()
+		[HttpGet]
+		public async Task<IActionResult> Get()
         {
             var result = await this.dataContext.OrderHeaders.Select(x => new
 			{
@@ -25,8 +26,8 @@ namespace TEK.Core.WebApi.Controllers
             return Ok(result);
         }
 
-        [Route("api/[controller]/{id:int}")]
-        public async Task<OrderHeader> Get(int id)
+		[HttpGet("{id}")]
+		public async Task<OrderHeader> Get(int id)
         {
             return await this.dataContext.OrderHeaders.FindAsync(id);
         }

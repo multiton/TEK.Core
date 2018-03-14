@@ -1,7 +1,9 @@
-<div *ngIf="company | async as cmp" style="padding-left: 5px">
-    <br><label>ID:</label> {{cmp.id }}
+<div *ngIf="company | async as cmp" class="DetailsPanel">
+    <h3>Company</h3>
+    <label>ID:</label> {{cmp.id }}
     <br><label>Name:</label> {{cmp.name }}
     <br><br>
     <button (click)="save(cmp)">Save</button>
     <button (click)="delete(cmp)">Delete</button>
+    <button (click)="back(cmp)">Cancel</button>
 </div>

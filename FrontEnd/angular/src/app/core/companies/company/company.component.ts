@@ -26,6 +26,12 @@ export class CompanyComponent implements OnInit
     this.router.navigate(['/companies', { id: companyId }]);
   }
 
+  back(cmp: Company)
+  {
+    let companyId = cmp ? cmp.id : null; 
+    this.router.navigate(['/companies', { id: companyId }]);
+  }
+
   delete(existingCompany: Company)
   {
     if (existingCompany)
