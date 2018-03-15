@@ -1,9 +1,12 @@
-<div *ngIf="company | async as cmp" class="DetailsPanel">
+<!-- <div *ngIf="company | async as cmp" class="DetailsPanel"> 
+     <div *ngIf="company | async as cmp" class="DetailsPanel"> (old service [no resolver]) -->
+
+<div *ngIf="company" class="DetailsPanel">
     <h3>Company</h3>
-    <label>ID:</label> {{cmp.id }}
-    <br><label>Name:</label> {{cmp.name }}
+    <label>ID:</label> {{company.id }}
+    <br><label>Name:</label> {{company.name }}
     <br><br>
-    <button (click)="save(cmp)">Save</button>
-    <button (click)="delete(cmp)">Delete</button>
-    <button (click)="back(cmp)">Cancel</button>
+    <button (click)="save(company)">Save</button>
+    <button (click)="delete(company)">Delete</button>
+    <button (click)="back(company)">Cancel</button>
 </div>

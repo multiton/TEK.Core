@@ -8,7 +8,7 @@ import { CompanyService } from '../shared/company.srevice'
 @Component({templateUrl: './company.component.html'})
 export class CompanyComponent implements OnInit
 {
-  private company : Observable<Company>
+  company : Company // Observable<Company>
 
   constructor(
     private companyService : CompanyService,
@@ -17,7 +17,9 @@ export class CompanyComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.company = this.companyService.getSingle(this.route.snapshot.params.id);
+    // old (before resolver): this.company = this.companyService.getSingle(this.route.snapshot.params.id);   
+    
+    this.route.data.subscribe((data: { company: Company }) => { this.company = data.company; });
   }
 
   save(newCompany: Company)

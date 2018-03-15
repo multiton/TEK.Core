@@ -5,6 +5,8 @@ import { environment } from "../environments/environment";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/catch';
 
+import 'rxjs/add/operator/delay';
+
 export abstract class RestServiceBase<T>
 {   
     private baseUrl : string;
@@ -21,7 +23,7 @@ export abstract class RestServiceBase<T>
 
     getSingle(id: number) : Observable<T>
     {
-        return this.http.get<T>(`${this.baseUrl}/${id}`).catch(this.handleError);
+        return (this.http.get<T>(`${this.baseUrl}/${id}`).catch(this.handleError)).delay(3000);
     }
 
     getFiltered(filter: string) : Observable<T[]>
