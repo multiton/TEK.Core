@@ -4,7 +4,7 @@
 
   <div class="data-container">
     <table class="items">
-      <tr *ngFor="let company of companies | async" [class.selectedRow]="company.id == selectedId" >
+      <tr *ngFor="let company of companies | async" [class.selectedRow]="company.id == selectedId">
         <td class="badge">
           <a [routerLink]="['/company', company.id]">{{company.id}}</a>
         </td>

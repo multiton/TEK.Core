@@ -17,7 +17,8 @@ export class CompanyComponent implements OnInit
 
   ngOnInit(): void
   {
-    // old (before resolver): this.company = this.companyService.getSingle(this.route.snapshot.params.id);   
+    // old, direct service call (before resolver):
+    // this.company = this.companyService.getSingle(this.route.snapshot.params.id);   
     
     this.route.data.subscribe((data: { company: Company }) => { this.company = data.company; });
   }

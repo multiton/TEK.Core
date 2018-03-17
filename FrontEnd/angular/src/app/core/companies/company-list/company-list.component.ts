@@ -1,5 +1,5 @@
-import { ActivatedRoute, ParamMap } from '@angular/router'
 import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, ParamMap } from '@angular/router'
 
 import { Company } from '../shared/company.model'
 import { CompanyService } from '../shared/company.srevice'
@@ -21,8 +21,8 @@ export class CompanyListComponent implements OnInit
   {   
     this.companies = this.route.paramMap.switchMap((params: ParamMap) =>
     {
-        this.selectedId = +params.get('id');
-        return this.companyService.getAll();
+      this.selectedId = +params.get('id');
+      return this.companyService.getAll();
     });
   }
 
