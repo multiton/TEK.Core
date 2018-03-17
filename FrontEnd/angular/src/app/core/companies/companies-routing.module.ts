@@ -12,8 +12,7 @@ const companyRoutes: Routes =
 ];
 
 @NgModule({
-  imports: [ RouterModule.forChild(companyRoutes) ],
-  exports: [ RouterModule ],
+  imports:   [ RouterModule.forChild(companyRoutes) ],
   providers: [ CompanyResolver ]
 })
 export class CompanyRoutingModule

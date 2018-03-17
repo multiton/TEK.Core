@@ -10,8 +10,5 @@ const orderRoutes: Routes =
   { path: 'order/:id', component: OrderComponent }
 ];
 
-@NgModule({
-  imports: [ RouterModule.forChild(orderRoutes) ],
-  exports: [ RouterModule ]
-})
+@NgModule({ imports: [ RouterModule.forChild(orderRoutes) ] })
 export class OrderRoutingModule { }

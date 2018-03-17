@@ -10,8 +10,5 @@ const configValueRoutes: Routes =
   { path: 'configValue/:id', component: ConfigValueComponent }
 ];
 
-@NgModule({
-  imports: [ RouterModule.forChild(configValueRoutes) ],
-  exports: [ RouterModule ]
-})
+@NgModule({ imports: [ RouterModule.forChild(configValueRoutes) ] })
 export class ConfigValueRoutingModule { }
