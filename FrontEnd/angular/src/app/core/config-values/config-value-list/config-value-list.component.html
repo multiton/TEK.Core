@@ -1,12 +1,20 @@
-<table class="items">
-    <tr *ngFor="let configValue of configValues | async">
-      <td class="badge">
-        <a [routerLink]="['/configValue', configValue.id]" routerLinkActive='selectedRow'>
-          {{configValue.name}}
-        </a>
-      </td>
-      <td>{{ configValue.currentValue }}</td>
-      <td>{{ configValue.defaultValue }}</td>
-      <td>{{ configValue.description  }}</td>
-    </tr>
-</table>
+<div>
+
+  &nbsp;&nbsp;Configuration setting values <input (keyup) = "search($event.target.value)" placeholder = "Search" />
+
+  <div class="data-container">
+    <table class="items">
+        <tr *ngFor="let configValue of configValues | async">
+          <td class="badge">
+            <a [routerLink]="['/configValue', configValue.id]" routerLinkActive='selectedRow'>
+              {{configValue.name}}
+            </a>
+          </td>
+          <td>{{ configValue.currentValue }}</td>
+          <td>{{ configValue.defaultValue }}</td>
+          <td>{{ configValue.description  }}</td>
+        </tr>
+    </table>
+  </div>
+
+</div>

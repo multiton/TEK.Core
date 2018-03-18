@@ -9,6 +9,7 @@ import { ConfigValuesModule } from './core/config-values/config-values.module';
 import { AppRoutingModule } from './app-routing.module'
 
 import { AppComponent } from './app.component'
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule(
 {
@@ -22,7 +23,8 @@ import { AppComponent } from './app.component'
     AppRoutingModule
   ],
   declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [ AuthGuard ]
 })
 export class AppModule
 {
