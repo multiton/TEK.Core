@@ -18,6 +18,9 @@ namespace TEK.Core.ResourceAccess.EF
 		{
 			modelBuilder.Entity<Company>().HasIndex(x => x.Name).IsUnique();
 			modelBuilder.Entity<OrderHeader>().HasIndex(x => x.Number).IsUnique();
+			
+			// uncomment and create index later...
+			// modelBuilder.Entity<ConfigValue>().HasIndex(x => x.Name).IsUnique();
 
 			base.OnModelCreating(modelBuilder);
 		}

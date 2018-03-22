@@ -11,7 +11,7 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-	//[Authorize]
+	// [Authorize]
 	[Route("api/[controller]")]
 	public class CompanyController : BaseController
     {

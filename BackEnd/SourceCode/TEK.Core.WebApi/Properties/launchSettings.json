@@ -1,5 +1,6 @@
 {
   "iisSettings": {
+    "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:51403",
@@ -17,6 +18,7 @@
       "use64Bit": true
     },
     "TEK.Core.WebApi": {
+      "windowsAuthentication": true,
       "commandName": "Project",
       "launchUrl": "api/asynch/1000",
       "environmentVariables": {
