@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Cors;
 namespace TEK.Core.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    [EnableCors("AllowSpecificOrigin")]
+    [EnableCors("AllowAnyOrigin")]
     public class TestController : Controller
     {
         [HttpGet]

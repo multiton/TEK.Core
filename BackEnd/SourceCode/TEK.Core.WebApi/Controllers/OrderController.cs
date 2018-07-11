@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ using TEK.Core.ResourceAccess.EF;
 namespace TEK.Core.WebApi.Controllers
 {
 	[Route("api/[controller]")]
+	[EnableCors("AllowAnyOrigin")]
 	public class OrderController : BaseController
     {
         public OrderController(DataContext dataContext) : base(dataContext) { }

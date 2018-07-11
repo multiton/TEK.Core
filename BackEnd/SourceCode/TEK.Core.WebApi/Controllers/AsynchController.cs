@@ -13,7 +13,7 @@ using TEK.Core.ResourceAccess.EF;
 namespace TEK.Core.WebApi.Controllers
 {
     [Produces("application/json")]
-    [EnableCors("AllowSpecificOrigin")]
+    [EnableCors("AllowAnyOrigin")]
 	public class AsynchController : Controller
     {
         private readonly DataContext dataContext;

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,8 +11,9 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-	// [Authorize]
+	//[Authorize]
 	[Route("api/[controller]")]
+	[EnableCors("AllowAnyOrigin")]
 	public class CompanyController : BaseController
     {
         public CompanyController(DataContext dataContext) : base (dataContext) { }

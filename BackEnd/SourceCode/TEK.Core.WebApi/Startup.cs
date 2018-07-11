@@ -19,15 +19,14 @@ namespace TEK.Core.WebApi
 			Configuration =	configuration ?? throw new ArgumentException("NULL configuration is not allowed.");
 		}
 
-		// This method gets called by the runtime, use it to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-
-			services.AddCors(o => o.AddPolicy("AllowSpecificOrigin", builder =>
+			services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder =>
 			{
 				builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
 			}));
+
+			services.AddMvc();
 
 			services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TEK.Core")));
 		}
@@ -38,8 +37,8 @@ namespace TEK.Core.WebApi
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-            app.UseMvc();
-			app.UseCors("AllowSpecificOrigin");
+			app.UseCors("AllowAnyOrigin");
+			app.UseMvc();			
 		}
 	}
 }
