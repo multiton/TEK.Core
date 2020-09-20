@@ -1,12 +1,8 @@
-<!-- direct serviceservice [no resolver] variant...
- <div *ngIf="company | async as cmp" class="DetailsPanel">
--->
-
 <div *ngIf="company" class="DetailsPanel">
     <h3>Company</h3>
     <label>ID:</label> {{company.id }}
-    <br><label>Name:</label> {{company.name }}
-    <br><br>
+    <br><label>Name:</label> {{company.name }}<br>
+    <br>
     <button (click)="save(company)">Save</button>
     <button (click)="delete(company)">Delete</button>
     <button (click)="back(company)">Cancel</button>

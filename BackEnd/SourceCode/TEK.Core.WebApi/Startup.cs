@@ -2,43 +2,58 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using Microsoft.EntityFrameworkCore;
 using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+		readonly string AllowSpecificOrigins = "AllowSpecificOrigins";
+
+		public IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
         {
-			Configuration =	configuration ?? throw new ArgumentException("NULL configuration is not allowed.");
+			Configuration =	configuration ??
+				throw new ArgumentException("NULL configuration is not allowed.");
 		}
 
         public void ConfigureServices(IServiceCollection services)
         {
-			services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder =>
+			services.AddCors(options =>
 			{
-				builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
-			}));
+				options.AddPolicy(name: AllowSpecificOrigins, builder =>
+				{
+					builder.WithOrigins("http://localhost:4200");
+				});
+			});
 
-			services.AddMvc();
+			services.AddControllers();
 
-			services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TEK.Core")));
+			services.AddDbContext<DataContext>(options =>
+				options.UseSqlServer(Configuration.GetConnectionString("TEK.Core")));
 		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		// Also, see the next thread: https://stackoverflow.com/questions/31942037/how-to-enable-cors-in-asp-net-core
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment()) app.UseDeveloperExceptionPage();	
 
-			app.UseCors("AllowAnyOrigin");
-			app.UseMvc();			
+			app.UseRouting();
+
+			app.UseCors(AllowSpecificOrigins);
+
+			app.UseAuthorization();
+
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllers();
+			});
 		}
 	}
 }

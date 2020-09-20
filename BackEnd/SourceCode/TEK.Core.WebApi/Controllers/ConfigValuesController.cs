@@ -12,7 +12,7 @@ namespace TEK.Core.WebApi.Controllers
 {
 	[Route("api/ConfigValue")]
 	[Produces("application/json")]
-	[EnableCors("AllowAnyOrigin")]
+	[EnableCors("AllowSpecificOrigins")]
 	public class ConfigValueController : BaseController
     {
         public ConfigValueController(DataContext context) : base(context) { }

@@ -11,7 +11,7 @@ using TEK.Core.ResourceAccess.EF;
 namespace TEK.Core.WebApi.Controllers
 {
 	[Route("api/[controller]")]
-	[EnableCors("AllowAnyOrigin")]
+	[EnableCors("AllowSpecificOrigins")]
 	public class OrderController : BaseController
     {
         public OrderController(DataContext dataContext) : base(dataContext) { }

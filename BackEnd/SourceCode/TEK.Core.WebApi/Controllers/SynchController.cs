@@ -11,7 +11,7 @@ using TEK.Core.ResourceAccess.EF;
 namespace TEK.Core.WebApi.Controllers
 {
     [Produces("application/json")]
-    [EnableCors("AllowAnyOrigin")]
+    [EnableCors("AllowSpecificOrigins")]
     public class SynchController : Controller
     {
         private readonly DataContext dataContext;

@@ -13,7 +13,7 @@ namespace TEK.Core.WebApi.Controllers
 {
 	//[Authorize]
 	[Route("api/[controller]")]
-	[EnableCors("AllowAnyOrigin")]
+	[EnableCors("AllowSpecificOrigins")]
 	public class CompanyController : BaseController
     {
         public CompanyController(DataContext dataContext) : base (dataContext) { }
