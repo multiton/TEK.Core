@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +11,6 @@ namespace TEK.Core.WebApi.Controllers
 {
 	[Route("api/ConfigValue")]
 	[Produces("application/json")]
-	[EnableCors("AllowSpecificOrigins")]
 	public class ConfigValueController : BaseController
     {
         public ConfigValueController(DataContext context) : base(context) { }

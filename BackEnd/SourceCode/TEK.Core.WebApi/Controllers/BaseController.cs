@@ -5,7 +5,8 @@ using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
-    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [Produces("application/json")]    
     [EnableCors("AllowSpecificOrigins")]
     public class BaseController : Controller
     {

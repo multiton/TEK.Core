@@ -4,14 +4,12 @@ using System.Threading;
 using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Cors;
 
 using TEK.Core.ResourceAccess.EF;
 
 namespace TEK.Core.WebApi.Controllers
 {
     [Produces("application/json")]
-    [EnableCors("AllowSpecificOrigins")]
     public class SynchController : Controller
     {
         private readonly DataContext dataContext;
